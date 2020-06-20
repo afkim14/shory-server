@@ -1,0 +1,13 @@
+version: '3'
+
+services: 
+  database:
+    image: postgres:9.6-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: shory
+    volumes: 
+      - "./database/:/docker-entrypoint-initdb.d/"
+    ports: 
+      - "5432:5432"

@@ -1,0 +1,40 @@
+{
+  "name": "shory-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "docs": "apidoc -i routes/ -o docs/",
+    "db:model": "sequelize migration:generate --name",
+    "db:create:dev": "sequelize db:create --url postgres://shory:password@0.0.0.0:5432/short-db",
+    "db:create:prod": "sequelize db:create --url postgres://$DB_USERNAME:$DB_PASSWORD@$DB_HOST:5432/$DB_NAME",
+    "db:migrate:dev": "sequelize db:migrate --url postgres://shory:password@0.0.0.0:5432/short-db",
+    "db:migrate:prod": "sequelize db:migrate --url postgres://$DB_USERNAME:$DB_PASSWORD@$DB_HOST:5432/$DB_NAME"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "apidoc": "^0.20.0",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-jsdoc": "^21.0.0",
+    "nodemon": "^2.0.2",
+    "sequelize-cli": "^5.5.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.13",
+    "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0"
+  }
+}
